@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DOIFAS — персональный сайт Максима Ерохина, начинающего game designer, narrative designer и composer."
+    />
+    <title>DOIFAS — Game Designer / Narrative Designer / Composer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page">
+    <div class="page-transition" aria-hidden="true"></div>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="DOIFAS home">
+          <span class="brand-mark__symbol">
+            <img src="images/brand/doifas-logo-mark.png" alt="" />
+          </span>
+          <span class="brand-mark__text">DOIFAS</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Основная навигация">
+          <a href="#about">Кто я</a>
+          <a href="#focus">Фокус</a>
+          <a href="#gallery">Галерея</a>
+          <a href="#sections">Разделы</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero section-reveal">
+          <div class="hero__content">
+            <p class="eyebrow">Personal portfolio / doifas.dev</p>
+            <h1>Максим "doifas" Ерохин</h1>
+            <div class="hero__identity">
+              <span>DOIFAS</span>
+              <span>Game Designer · Narrative Designer · Composer</span>
+            </div>
+            <!-- TODO: заменить этот текст, когда появится финальное позиционирование. -->
+            <p class="hero__text">
+              Проектирую игровые системы, уровни, нарративные структуры и атмосферу.
+              Собираю идеи в понятные документы, презентации и игровые концепты.
+            </p>
+            <div class="hero__actions" aria-label="Главные действия">
+              <a class="button button--primary" href="projects.html">Смотреть проекты</a>
+              <a class="button button--secondary" href="resume.html">INTERVIEW.LOG</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-label="Ключевые направления">
+            <div class="hero-panel__line"></div>
+            <div>
+              <span class="hero-panel__label">Current mode</span>
+              <strong>Systems / Story / Sound</strong>
+            </div>
+            <div class="hero-panel__grid">
+              <span>Design docs</span>
+              <span>Pitch decks</span>
+              <span>Worldbuilding</span>
+              <span>Game loops</span>
+            </div>
+          </aside>
+        </section>
+
+        <section id="about" class="about section-block section-reveal">
+          <div class="section-heading">
+            <p class="eyebrow">About</p>
+            <h2>Кто я</h2>
+          </div>
+          <!-- TODO: обновить bio под актуальный опыт, проекты и тон общения. -->
+          <p class="section-lead">
+            Я начинающий геймдизайнер, автор игровых концептов и композитор. Работаю на
+            стыке системного дизайна, нарратива, атмосферы и презентации идей. Мне
+            интересно создавать игровые миры, которые ощущаются цельными: от лора и
+            прогрессии до структуры локаций, экономики и визуального тона.
+          </p>
+        </section>
+
+        <section id="focus" class="section-block section-reveal">
+          <div class="section-heading section-heading--split">
+            <div>
+              <p class="eyebrow">Focus</p>
+              <h2>Направления</h2>
+            </div>
+            <p>Четыре зоны, где сходятся структура, эмоция и рабочая подача идеи.</p>
+          </div>
+
+          <div class="focus-grid">
+            <!-- TODO: добавлять новые карточки через тот же паттерн .focus-card. -->
+            <article class="focus-card">
+              <span class="focus-card__number">01</span>
+              <h3>Game Design</h3>
+              <p>Игровые системы, прогрессия, экономика, механики.</p>
+            </article>
+            <article class="focus-card">
+              <span class="focus-card__number">02</span>
+              <h3>Level Design</h3>
+              <p>Структура локаций, маршруты, точки интереса.</p>
+            </article>
+            <article class="focus-card">
+              <span class="focus-card__number">03</span>
+              <h3>Narrative Design</h3>
+              <p>Персонажи, ветки, диалоги, сюжетные структуры.</p>
+            </article>
+            <article class="focus-card">
+              <span class="focus-card__number">04</span>
+              <h3>Music & Atmosphere</h3>
+              <p>Музыка, звуковая эстетика, настроение проекта.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="gallery" class="section-block section-reveal">
+          <div class="section-heading section-heading--split">
+            <div>
+              <p class="eyebrow">Gallery</p>
+              <h2>Галерея</h2>
+            </div>
+            <p>Места под фото, кадры проектов, рабочие материалы или атмосферные снимки.</p>
+          </div>
+
+          <div class="photo-grid" aria-label="Фотогалерея">
+            <!-- TODO: добавлять новые фото тем же паттерном .photo-tile + <img>. -->
+            <figure class="photo-tile photo-1">
+              <img src="assets/gallery/frame-01.png" alt="DOIFAS portrait frame 01" loading="lazy" />
+              <figcaption>FRAME 01</figcaption>
+            </figure>
+            <figure class="photo-tile photo-2">
+              <img src="assets/gallery/frame-02.png" alt="DOIFAS portrait frame 02" loading="lazy" />
+              <figcaption>FRAME 02</figcaption>
+            </figure>
+            <figure class="photo-tile photo-3">
+              <img src="assets/gallery/frame-03.png" alt="DOIFAS portrait frame 03" loading="lazy" />
+              <figcaption>FRAME 03</figcaption>
+            </figure>
+            <figure class="photo-tile photo-4">
+              <img src="assets/gallery/frame-04.png" alt="DOIFAS portrait frame 04" loading="lazy" />
+              <figcaption>FRAME 04</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="sections" class="section-block section-reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Gateway</p>
+            <h2>Project files</h2>
+          </div>
+
+          <div class="gateway-grid">
+            <!-- TODO: заменить cover-изображения в /images/projects/ на финальные обложки проектов. -->
+            <a class="gateway-card gateway-card--seversk" href="projects/seversk.html" data-transition="seversk">
+              <div class="gateway-card__meta">
+                <span>Extraction Shooter / Game Design Case</span>
+                <span>In Development</span>
+              </div>
+              <div class="gateway-card__content">
+                <h3>SEVERSK: PROJECT KUPOL</h3>
+                <p>Case file по системам, игровому циклу, риску, эвакуации и структуре проекта.</p>
+              </div>
+              <strong>OPEN DOSSIER →</strong>
+            </a>
+            <a class="gateway-card gateway-card--visual-novel" href="projects/visual-novel.html" data-transition="novel">
+              <div class="gateway-card__meta">
+                <span>Narrative Design Case</span>
+                <span>In Development</span>
+              </div>
+              <div class="gateway-card__content">
+                <h3>VISUAL NOVEL</h3>
+                <p>Нарративная структура, персонажи, ветки, атмосфера и драматургия выбора.</p>
+              </div>
+              <strong>OPEN DOSSIER →</strong>
+            </a>
+            <a class="gateway-card gateway-card--music" href="#music-modal" data-modal-target="music-modal">
+              <div class="gateway-card__meta">
+                <span>Composer / Sound Atmosphere</span>
+                <span>Selected Works</span>
+              </div>
+              <div class="gateway-card__content">
+                <h3>MUSIC</h3>
+                <p>Музыкальные эскизы, звуковая эстетика и настроение для игровых миров.</p>
+              </div>
+              <strong>EXPLORE →</strong>
+            </a>
+            <a class="gateway-card gateway-card--resume" href="resume.html">
+              <div class="gateway-card__meta">
+                <span>Personal File</span>
+                <span>Available</span>
+              </div>
+              <div class="gateway-card__content">
+                <h3>INTERVIEW<wbr>.LOG</h3>
+                <p>Личные взгляды, игровой дизайн, вдохновение и подход к разработке.</p>
+              </div>
+              <strong>OPEN FILE →</strong>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <strong>DOIFAS</strong>
+          <span>doifas.dev</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://t.me/doifasss" target="_blank" rel="noreferrer">Telegram</a>
+          <a href="mailto:geomastergd@gmail.com">Email</a>
+        </div>
+      </footer>
+    </div>
+
+    <div class="modal-backdrop" data-modal-backdrop hidden>
+      <section
+        id="music-modal"
+        class="music-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="music-modal-title"
+        aria-describedby="music-modal-description"
+      >
+        <button class="modal-close" type="button" data-modal-close aria-label="Close music links">Close</button>
+        <p class="eyebrow">Streaming links</p>
+        <h2 id="music-modal-title">MUSIC</h2>
+        <p class="music-modal__subtitle">Original Music / Selected Works</p>
+        <p id="music-modal-description" class="music-modal__copy">
+          Музыку можно послушать на стриминговых площадках.
+        </p>
+
+        <div class="music-links">
+          <a href="https://open.spotify.com/artist/0o04Oi56wGW53kVYITPEuU?si=a4g-IAWeQBKQizqT0Dy39Q" target="_blank" rel="noreferrer">
+            <span>Spotify</span>
+            <small>Global streaming platform</small>
+            <strong>LISTEN →</strong>
+          </a>
+          <a href="https://music.yandex.ru/artist/12401698?utm_source=web&utm_medium=copy_link" target="_blank" rel="noreferrer">
+            <span>Яндекс Музыка</span>
+            <small>Russian streaming platform</small>
+            <strong>LISTEN →</strong>
+          </a>
+          <a href="https://music.apple.com/ru/artist/d01f4s/1542025923" target="_blank" rel="noreferrer">
+            <span>Apple Music</span>
+            <small>Apple streaming platform</small>
+            <strong>LISTEN →</strong>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
