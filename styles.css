@@ -1026,6 +1026,58 @@ body.is-modal-open {
   outline: none;
 }
 
+.personal-notes {
+  margin: clamp(20px, 3vw, 36px) 0 0 auto;
+  width: min(310px, calc(100vw - 32px));
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent 56%),
+    rgba(14, 15, 15, 0.72);
+  box-shadow: 0 20px 58px rgba(0, 0, 0, 0.22);
+  opacity: 0.76;
+  backdrop-filter: blur(14px);
+  transition:
+    opacity 260ms ease,
+    border-color 260ms ease,
+    background-color 260ms ease,
+    color 260ms ease;
+}
+
+.personal-notes:hover {
+  border-color: rgba(169, 143, 102, 0.28);
+  background-color: rgba(18, 19, 19, 0.82);
+  opacity: 1;
+}
+
+.personal-notes__label,
+.personal-notes__entry {
+  display: block;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.personal-notes__text {
+  min-height: 4.6em;
+  margin: 16px 0 18px;
+  color: rgba(241, 238, 232, 0.76);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  transition: opacity 420ms ease, color 260ms ease;
+}
+
+.personal-notes:hover .personal-notes__text {
+  color: rgba(241, 238, 232, 0.94);
+}
+
+.personal-notes.is-changing .personal-notes__text,
+.personal-notes.is-changing .personal-notes__entry {
+  opacity: 0;
+}
+
 html.has-js .section-reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -1359,6 +1411,12 @@ html.has-js .section-reveal.is-visible {
 
   .gateway-card {
     min-height: 390px;
+  }
+
+  .personal-notes {
+    width: 100%;
+    margin: 22px 0 0;
+    opacity: 0.78;
   }
 
   .modal-backdrop {

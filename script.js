@@ -483,6 +483,98 @@ const interviewTranslations = {
   ],
 };
 
+const personalNotesTranslations = {
+  ru: [
+    "Хорошая механика должна работать даже без сюжета.",
+    "Если игроку интересно просто идти вперёд — значит мир уже работает.",
+    "Атмосфера — это не графика. Это ощущение.",
+    "Игрок всегда найдёт самый эффективный путь. Сделай так, чтобы он был интересным.",
+    "Большая карта ничего не стоит без причин её исследовать.",
+    "Иногда убрать механику полезнее, чем добавить новую.",
+    "Каждый предмет должен отвечать на вопрос: зачем он существует?",
+    "Хороший интерфейс не объясняет себя.",
+    "Мир должен существовать даже без игрока.",
+    "Не бойся оставлять вопросы без ответов.",
+    "История не должна мешать игре.",
+    "Чем меньше правил объясняешь — тем лучше они придуманы.",
+    "Гринд не проблема. Бессмысленный гринд — проблема.",
+    "Если игроку хочется вернуться завтра — игра победила.",
+    "Сложность должна вызывать уважение, а не раздражение.",
+    "Не каждая механика обязана нравиться всем.",
+    "Баланс — это бесконечный процесс.",
+    "Любая система должна ломаться красиво.",
+    "Если игрок остановился посмотреть вокруг — значит ты всё сделал правильно.",
+    "Мир интереснее, когда в нём есть тайны.",
+    "Не люблю игры, которые торопят игрока без причины.",
+    "Музыка — это тоже геймдизайн.",
+    "Даже меню должно быть частью игрового опыта.",
+    "Игрок должен чувствовать последствия своих решений.",
+    "Масштаб ощущается не размером карты, а количеством возможностей.",
+    "Хорошая идея ничего не стоит без реализации.",
+    "Всё начинается с маленькой идеи, записанной в Obsidian.",
+    "Если игра вызывает обсуждение — она уже чего-то добилась.",
+    "Игрок запомнит эмоцию. Не цифры.",
+    "Игрок должен хотеть экспериментировать.",
+    "В каждой игре должна быть причина остаться ещё на один час.",
+  ],
+  en: [
+    "A strong mechanic should work even without a story.",
+    "If moving forward is interesting by itself, the world is already working.",
+    "Atmosphere is not graphics. It is a feeling.",
+    "The player will always find the most efficient path. Make that path interesting.",
+    "A large map means nothing without reasons to explore it.",
+    "Sometimes removing a mechanic is more useful than adding a new one.",
+    "Every item should answer one question: why does it exist?",
+    "A good interface does not explain itself.",
+    "The world should exist even without the player.",
+    "Do not be afraid to leave some questions unanswered.",
+    "The story should not get in the way of the game.",
+    "The fewer rules you need to explain, the better they were designed.",
+    "Grind is not the problem. Meaningless grind is.",
+    "If the player wants to return tomorrow, the game has won.",
+    "Difficulty should create respect, not irritation.",
+    "Not every mechanic has to appeal to everyone.",
+    "Balance is an endless process.",
+    "Every system should break in an interesting way.",
+    "If the player stops to look around, you did something right.",
+    "A world is more interesting when it holds secrets.",
+    "I dislike games that rush the player for no reason.",
+    "Music is game design too.",
+    "Even the menu should be part of the game experience.",
+    "The player should feel the consequences of their decisions.",
+    "Scale is not the size of the map. It is the number of possibilities.",
+    "A good idea is worth nothing without execution.",
+    "Everything starts with a small idea written down in Obsidian.",
+    "If a game creates discussion, it has already achieved something.",
+    "The player will remember the emotion, not the numbers.",
+    "The player should want to experiment.",
+    "Every game needs a reason to stay for one more hour.",
+  ],
+};
+
+const personalNotesCopy = {
+  ru: {
+    label: "PERSONAL NOTES",
+    entry: "ЗАМЕТКА",
+  },
+  en: {
+    label: "PERSONAL NOTES",
+    entry: "ENTRY",
+  },
+};
+
+const personalNotesStorageKey = "doifas-personal-notes-state";
+const personalNotesIntervalMs = 12000;
+const personalNotesFadeMs = 420;
+const personalNotesHoverPauseMs = 2000;
+const personalNotesResumeMs = 3000;
+let currentLanguage = "ru";
+let personalNotesElements = null;
+let personalNotesTimer = null;
+let personalNotesHoverTimer = null;
+let personalNotesResumeTimer = null;
+let personalNotesPaused = false;
+
 const getStoredLanguage = () => {
   const storedLanguage = window.localStorage.getItem("doifas-language");
   return storedLanguage === "en" || storedLanguage === "ru" ? storedLanguage : "ru";
@@ -509,6 +601,7 @@ const applyAttributeTranslation = (element, lang) => {
 const setLanguage = (lang) => {
   const nextLanguage = lang === "en" ? "en" : "ru";
 
+  currentLanguage = nextLanguage;
   document.documentElement.lang = nextLanguage;
   window.localStorage.setItem("doifas-language", nextLanguage);
 
@@ -546,6 +639,8 @@ const setLanguage = (lang) => {
   if (document.body.dataset.pageTitle) {
     document.title = translateKey(document.body.dataset.pageTitle, nextLanguage);
   }
+
+  updatePersonalNotesLanguage(nextLanguage);
 };
 
 window.setLanguage = setLanguage;
@@ -557,6 +652,228 @@ document.querySelectorAll("[data-language-option]").forEach((button) => {
 });
 
 setLanguage(getStoredLanguage());
+
+const readPersonalNotesState = () => {
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem(personalNotesStorageKey));
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+};
+
+const writePersonalNotesState = (state) => {
+  window.localStorage.setItem(personalNotesStorageKey, JSON.stringify(state));
+};
+
+const getSecureIndex = (max) => {
+  if (max <= 1) {
+    return 0;
+  }
+
+  const values = new Uint32Array(1);
+  window.crypto.getRandomValues(values);
+  return values[0] % max;
+};
+
+const shuffleSecure = (items) => {
+  const result = [...items];
+
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const swapIndex = getSecureIndex(index + 1);
+    [result[index], result[swapIndex]] = [result[swapIndex], result[index]];
+  }
+
+  return result;
+};
+
+const normalizePersonalNotesState = (state) => {
+  const noteCount = personalNotesTranslations.ru.length;
+  const validIndex = (value) => Number.isInteger(value) && value >= 0 && value < noteCount;
+  const normalized = {
+    pool: Array.isArray(state.pool) ? state.pool.filter(validIndex) : [],
+    currentIndex: validIndex(state.currentIndex) ? state.currentIndex : null,
+    lastIndex: validIndex(state.lastIndex) ? state.lastIndex : null,
+    blockedIndex: validIndex(state.blockedIndex) ? state.blockedIndex : null,
+    shownSinceReset: Number.isInteger(state.shownSinceReset) ? Math.max(0, state.shownSinceReset) : 0,
+  };
+
+  normalized.pool = [...new Set(normalized.pool)];
+  return normalized;
+};
+
+const createPersonalNotesCycle = (lastIndex) => {
+  const allIndexes = personalNotesTranslations.ru.map((_, index) => index);
+  const pool = Number.isInteger(lastIndex) ? allIndexes.filter((index) => index !== lastIndex) : allIndexes;
+
+  return {
+    pool: shuffleSecure(pool),
+    blockedIndex: Number.isInteger(lastIndex) ? lastIndex : null,
+    shownSinceReset: 0,
+  };
+};
+
+const getNextPersonalNoteIndex = () => {
+  const state = normalizePersonalNotesState(readPersonalNotesState());
+  const noteCount = personalNotesTranslations.ru.length;
+
+  if (state.pool.length === 0) {
+    Object.assign(state, createPersonalNotesCycle(state.lastIndex));
+  }
+
+  if (state.blockedIndex !== null && state.shownSinceReset >= 3 && !state.pool.includes(state.blockedIndex)) {
+    state.pool.splice(getSecureIndex(state.pool.length + 1), 0, state.blockedIndex);
+    state.blockedIndex = null;
+  }
+
+  if (state.pool.length === 0) {
+    state.pool = shuffleSecure(personalNotesTranslations.ru.map((_, index) => index));
+    state.blockedIndex = null;
+    state.shownSinceReset = 0;
+  }
+
+  const nextIndex = state.pool.shift();
+
+  if (state.blockedIndex !== null && nextIndex !== state.blockedIndex) {
+    state.shownSinceReset += 1;
+  }
+
+  state.currentIndex = nextIndex;
+  state.lastIndex = nextIndex;
+
+  if (state.shownSinceReset > noteCount) {
+    state.shownSinceReset = noteCount;
+  }
+
+  writePersonalNotesState(state);
+  return nextIndex;
+};
+
+const getCurrentPersonalNoteIndex = () => {
+  const state = normalizePersonalNotesState(readPersonalNotesState());
+
+  if (state.currentIndex !== null) {
+    writePersonalNotesState(state);
+    return state.currentIndex;
+  }
+
+  return getNextPersonalNoteIndex();
+};
+
+const renderPersonalNote = (index, lang = currentLanguage) => {
+  if (!personalNotesElements) {
+    return;
+  }
+
+  const safeIndex = Number.isInteger(index) ? index : getCurrentPersonalNoteIndex();
+  const note = personalNotesTranslations[lang]?.[safeIndex] ?? personalNotesTranslations.ru[safeIndex];
+  const copy = personalNotesCopy[lang] ?? personalNotesCopy.ru;
+
+  personalNotesElements.label.textContent = copy.label;
+  personalNotesElements.text.textContent = note;
+  personalNotesElements.entry.textContent = `${copy.entry} #${String(safeIndex + 1).padStart(2, "0")}`;
+};
+
+function updatePersonalNotesLanguage(lang) {
+  if (!personalNotesElements) {
+    return;
+  }
+
+  renderPersonalNote(getCurrentPersonalNoteIndex(), lang);
+}
+
+const schedulePersonalNotes = () => {
+  window.clearTimeout(personalNotesTimer);
+
+  if (personalNotesPaused) {
+    return;
+  }
+
+  personalNotesTimer = window.setTimeout(() => {
+    advancePersonalNote();
+  }, personalNotesIntervalMs);
+};
+
+function advancePersonalNote() {
+  if (!personalNotesElements || personalNotesPaused) {
+    return;
+  }
+
+  const nextIndex = getNextPersonalNoteIndex();
+
+  if (prefersReducedMotion) {
+    renderPersonalNote(nextIndex);
+    schedulePersonalNotes();
+    return;
+  }
+
+  personalNotesElements.root.classList.add("is-changing");
+
+  window.setTimeout(() => {
+    renderPersonalNote(nextIndex);
+    personalNotesElements.root.classList.remove("is-changing");
+    schedulePersonalNotes();
+  }, personalNotesFadeMs);
+}
+
+const pausePersonalNotes = () => {
+  personalNotesPaused = true;
+  window.clearTimeout(personalNotesTimer);
+  window.clearTimeout(personalNotesResumeTimer);
+};
+
+const resumePersonalNotes = () => {
+  window.clearTimeout(personalNotesResumeTimer);
+  personalNotesResumeTimer = window.setTimeout(() => {
+    personalNotesPaused = false;
+    schedulePersonalNotes();
+  }, personalNotesResumeMs);
+};
+
+const setupPersonalNotes = () => {
+  const root = document.createElement("aside");
+  root.className = "personal-notes";
+  root.setAttribute("aria-live", "polite");
+  root.innerHTML = `
+    <span class="personal-notes__label"></span>
+    <p class="personal-notes__text"></p>
+    <small class="personal-notes__entry"></small>
+  `;
+
+  const shell = document.querySelector(".site-shell");
+  const footer = shell?.querySelector(".site-footer");
+
+  if (footer) {
+    shell.insertBefore(root, footer);
+  } else {
+    document.body.append(root);
+  }
+
+  personalNotesElements = {
+    root,
+    label: root.querySelector(".personal-notes__label"),
+    text: root.querySelector(".personal-notes__text"),
+    entry: root.querySelector(".personal-notes__entry"),
+  };
+
+  renderPersonalNote(getCurrentPersonalNoteIndex());
+  schedulePersonalNotes();
+
+  root.addEventListener("mouseenter", () => {
+    window.clearTimeout(personalNotesResumeTimer);
+    personalNotesHoverTimer = window.setTimeout(pausePersonalNotes, personalNotesHoverPauseMs);
+  });
+
+  root.addEventListener("mouseleave", () => {
+    window.clearTimeout(personalNotesHoverTimer);
+
+    if (personalNotesPaused) {
+      resumePersonalNotes();
+    }
+  });
+};
+
+setupPersonalNotes();
 
 const canAnimateGrid =
   window.matchMedia("(pointer: fine)").matches &&
