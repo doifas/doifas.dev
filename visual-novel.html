@@ -11,11 +11,15 @@
   </head>
   <body class="stub-page">
     <main class="stub-card">
-      <p class="eyebrow">DOIFAS / Section draft</p>
-      <h1>Visual Novel</h1>
-      <!-- TODO: описать визуальную новеллу, персонажей, ветки и структуру. -->
-      <p>Заготовка для проекта визуальной новеллы: нарратив, персонажи, выборы, тон.</p>
-      <a class="button button--primary" href="index.html">На главную</a>
+      <div class="language-switch" aria-label="Language">
+        <button type="button" data-language-option="ru" aria-pressed="true">RU</button>
+        <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+      </div>
+      <p class="eyebrow" data-i18n="stub.eyebrow">DOIFAS / Черновик раздела</p>
+      <h1 data-i18n="stub.visual.title">Визуальная новелла</h1>
+      <p data-i18n="stub.visual.copy">Основная страница проекта уже доступна в разделе ВЕЛЕЖСК.</p>
+      <a class="button button--primary" href="projects/visual-novel.html" data-i18n="common.openDossier">ОТКРЫТЬ ДОСЬЕ →</a>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

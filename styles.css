@@ -322,6 +322,38 @@ a {
   outline: none;
 }
 
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 6px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.language-switch button {
+  min-width: 36px;
+  border: 0;
+  padding: 7px 8px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.language-switch button:hover,
+.language-switch button:focus-visible,
+.language-switch button.is-active {
+  background: rgba(255, 255, 255, 0.075);
+  color: var(--text);
+  outline: none;
+}
+
 .nav-toggle {
   display: none;
   width: 42px;
@@ -1273,6 +1305,16 @@ html.has-js .section-reveal.is-visible {
 
   .site-nav a {
     padding: 14px;
+  }
+
+  .language-switch {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .language-switch button {
+    flex: 1;
+    padding: 12px 8px;
   }
 
   .hero h1 {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DOIFAS — Game Design Projects</title>
+    <title>DOIFAS — Projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet" />
@@ -11,11 +11,15 @@
   </head>
   <body class="stub-page">
     <main class="stub-card">
-      <p class="eyebrow">DOIFAS / Section draft</p>
-      <h1>Projects</h1>
-      <!-- TODO: добавить карточки игровых концептов, документов и презентаций. -->
-      <p>Здесь появятся game design projects: концепты, системы, механики, питч-деки.</p>
-      <a class="button button--primary" href="index.html">На главную</a>
+      <div class="language-switch" aria-label="Language">
+        <button type="button" data-language-option="ru" aria-pressed="true">RU</button>
+        <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+      </div>
+      <p class="eyebrow" data-i18n="stub.eyebrow">DOIFAS / Черновик раздела</p>
+      <h1 data-i18n="stub.projects.title">Проекты</h1>
+      <p data-i18n="stub.projects.copy">Здесь появятся игровые проекты: концепты, системы, механики и презентации.</p>
+      <a class="button button--primary" href="index.html" data-i18n="stub.home">На главную</a>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="SEVERSK: PROJECT KUPOL — PvPvE extraction shooter concept by DOIFAS."
+      content="SEVERSK: PROJECT KUPOL — концепт PvPvE extraction shooter от DOIFAS."
+      data-i18n-attr="content:meta.seversk.description"
     />
     <title>DOIFAS — SEVERSK: PROJECT KUPOL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,32 +17,36 @@
     />
     <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body class="page case-page seversk-case">
+  <body class="page case-page seversk-case" data-page-title="title.seversk">
     <div class="page-transition" aria-hidden="true"></div>
     <div class="site-shell case-shell">
       <header class="site-header">
-        <a class="brand-mark" href="../index.html" aria-label="DOIFAS home" data-transition="home">
+        <a class="brand-mark" href="../index.html" aria-label="DOIFAS — на главную" data-transition="home" data-i18n-attr="aria-label:aria.brandHome">
           <span class="brand-mark__symbol">
             <img src="../images/brand/doifas-logo-mark.png" alt="" />
           </span>
           <span class="brand-mark__text">DOIFAS</span>
         </a>
-        <nav class="site-nav site-nav--case" aria-label="Project navigation">
-          <a href="../index.html#sections" data-transition="home">Project files</a>
-          <a href="../index.html" data-transition="home">Home</a>
+        <nav class="site-nav site-nav--case" aria-label="Навигация проекта" data-i18n-attr="aria-label:aria.navProject">
+          <a href="../index.html#sections" data-transition="home" data-i18n="nav.projectFiles">Project files</a>
+          <a href="../index.html" data-transition="home" data-i18n="nav.home">Главная</a>
+          <div class="language-switch" aria-label="Language">
+            <button type="button" data-language-option="ru" aria-pressed="true">RU</button>
+            <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+          </div>
         </nav>
       </header>
 
       <main class="seversk-case__layout">
         <section class="seversk-hero">
           <div class="seversk-hero__copy">
-            <p class="eyebrow">PvPvE Extraction Shooter</p>
+            <p class="eyebrow" data-i18n="seversk.type">PvPvE Extraction Shooter</p>
             <h1>SEVERSK: PROJECT KUPOL</h1>
             <div class="case-meta">
-              <span>Concept Phase</span>
-              <span>Game Design Case</span>
+              <span data-i18n="common.conceptPhase">Концепт</span>
+              <span data-i18n="seversk.case">Геймдизайн-кейс</span>
             </div>
-            <p>
+            <p data-i18n="seversk.hero">
               Концепт PvPvE extraction shooter в современной России. Основной акцент проекта — напряжённые рейды,
               атмосфера изолированного региона, риск, тактическое взаимодействие и мир, который постепенно раскрывается
               через исследование.
@@ -49,26 +54,25 @@
           </div>
 
           <figure class="seversk-cover">
-            <!-- TODO: заменить на финальную обложку проекта, если key art будет обновлён. -->
             <img src="../images/projects/seversk-cover.jpg" alt="SEVERSK: PROJECT KUPOL cover" />
           </figure>
         </section>
 
         <section class="seversk-section seversk-section--lore">
-          <p class="eyebrow">Lore</p>
-          <h2>Изолированный регион. Локальный кризис. Неполная правда.</h2>
+          <p class="eyebrow" data-i18n="seversk.lore">Лор</p>
+          <h2 data-i18n="seversk.lore.title">Изолированный регион. Локальный кризис. Неполная правда.</h2>
           <div class="seversk-copy">
-            <p>
+            <p data-i18n="seversk.lore.p1">
               Действие разворачивается вокруг закрытого промышленного района и объекта «Купол». После серии аварийных
               сигналов, пропажи групп мониторинга и внезапного усиления режима территорию выводят из публичного поля и
               фактически отрезают от внешнего мира.
             </p>
-            <p>
+            <p data-i18n="seversk.lore.p2">
               Регион изолирован не из-за глобальной катастрофы, а из-за локального кризиса, который слишком опасно
               объяснять напрямую: связь нестабильна, маршруты контролируются, а официальные документы противоречат
               следам, найденным внутри зоны.
             </p>
-            <p>
+            <p data-i18n="seversk.lore.p3">
               Игрок попадает туда через рискованные рейды — за данными, ресурсами, контрактами и ответами. Главная
               тайна проекта в том, что именно скрывает «Купол» и почему разные стороны готовы рисковать людьми, чтобы
               первыми вынести правду из изоляции.
@@ -77,14 +81,14 @@
         </section>
 
         <section class="seversk-section seversk-section--concept">
-          <p class="eyebrow">Project Concept</p>
-          <h2>Рейд как история риска</h2>
+          <p class="eyebrow" data-i18n="seversk.concept">Концепция проекта</p>
+          <h2 data-i18n="seversk.concept.title">Рейд как история риска</h2>
           <div class="seversk-copy">
-            <p>
+            <p data-i18n="seversk.concept.p1">
               SEVERSK задуман как extraction shooter про напряжение перед каждым решением: идти глубже, сохранить
               добычу, помочь напарнику или выйти, пока ещё можно.
             </p>
-            <p>
+            <p data-i18n="seversk.concept.p2">
               Атмосфера проекта строится не на глобальном апокалипсисе, а на реалистичном чувстве изоляции, серых зон,
               закрытых объектов и региона, который постепенно начинает говорить через детали окружения.
             </p>
@@ -93,18 +97,18 @@
 
         <section class="seversk-document">
           <div>
-            <p class="eyebrow">Documentation</p>
-            <h2>PROJECT DOCUMENTATION</h2>
-            <p>
+            <p class="eyebrow" data-i18n="seversk.docs">Документация</p>
+            <h2 data-i18n="seversk.docs.title">ДОКУМЕНТАЦИЯ ПРОЕКТА</h2>
+            <p data-i18n="seversk.docs.copy">
               Проект находится на ранней стадии разработки. В настоящее время формируется игровая вселенная, концепция
               и фундамент дизайн-документа. Полная документация появится по мере развития проекта.
             </p>
           </div>
-          <span>WORK IN PROGRESS</span>
+          <span data-i18n="seversk.docs.status">В РАБОТЕ</span>
         </section>
 
-        <nav class="case-back" aria-label="Back navigation">
-          <a class="button button--secondary" href="../index.html#sections" data-transition="home">BACK TO FILES</a>
+        <nav class="case-back" aria-label="Навигация назад" data-i18n-attr="aria-label:aria.back">
+          <a class="button button--secondary" href="../index.html#sections" data-transition="home" data-i18n="common.backToFilesPlain">НАЗАД К PROJECT FILES</a>
         </nav>
       </main>
 
@@ -114,8 +118,8 @@
           <span>doifas.dev</span>
         </div>
         <div class="footer-links">
-          <a href="https://t.me/doifasss" target="_blank" rel="noreferrer">Telegram</a>
-          <a href="mailto:geomastergd@gmail.com">Email</a>
+          <a href="https://t.me/doifasss" target="_blank" rel="noreferrer" data-i18n="common.footerTelegram">Telegram</a>
+          <a href="mailto:geomastergd@gmail.com" data-i18n="common.footerEmail">Email</a>
         </div>
       </footer>
     </div>

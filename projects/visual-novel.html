@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ВЕЛЕЖСК — visual novel / narrative design case by DOIFAS."
+      content="ВЕЛЕЖСК — визуальная новелла / нарративный кейс DOIFAS."
+      data-i18n-attr="content:meta.visual.description"
     />
-    <title>DOIFAS — ВЕЛЕЖСК / Visual Novel Case</title>
+    <title>DOIFAS — ВЕЛЕЖСК / Визуальная новелла</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,94 +17,102 @@
     />
     <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body class="page page-novel case-page visual-novel-case">
+  <body class="page page-novel case-page visual-novel-case" data-page-title="title.visual">
     <div class="page-transition" aria-hidden="true"></div>
     <div class="site-shell case-shell">
       <header class="site-header">
-        <a class="brand-mark" href="../index.html" aria-label="DOIFAS home">
+        <a class="brand-mark" href="../index.html" aria-label="DOIFAS — на главную" data-i18n-attr="aria-label:aria.brandHome">
           <span class="brand-mark__symbol">
             <img src="../images/brand/doifas-logo-mark.png" alt="" />
           </span>
           <span class="brand-mark__text">DOIFAS</span>
         </a>
-        <nav class="site-nav site-nav--case" aria-label="Project navigation">
-          <a href="../index.html#sections">Project files</a>
-          <a href="../index.html">Home</a>
+        <nav class="site-nav site-nav--case" aria-label="Навигация проекта" data-i18n-attr="aria-label:aria.navProject">
+          <a href="../index.html#sections" data-i18n="nav.projectFiles">Project files</a>
+          <a href="../index.html" data-i18n="nav.home">Главная</a>
+          <div class="language-switch" aria-label="Language">
+            <button type="button" data-language-option="ru" aria-pressed="true">RU</button>
+            <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+          </div>
         </nav>
       </header>
 
       <main class="novel-case">
         <section class="case-hero novel-hero">
           <div class="case-hero__copy">
-            <p class="eyebrow">Visual Novel / Narrative Design Case</p>
-            <h1>ВЕЛЕЖСК</h1>
+            <p class="eyebrow" data-i18n="visual.eyebrow">Визуальная новелла / Нарративный кейс</p>
+            <h1 data-i18n="visual.title">ВЕЛЕЖСК</h1>
             <div class="case-meta">
-              <span>In Development</span>
-              <span>Personal indie project</span>
+              <span data-i18n="visual.status">В разработке</span>
+              <span data-i18n="visual.meta.project">Личный инди-проект</span>
             </div>
-            <p class="case-hero__lead">
-              Романтическая визуальная новелла о летней поездке, исторических петлях и выборе,
-              который превращает близость, страх и ответственность в последствия.
+            <p class="case-hero__lead" data-i18n="visual.hero.lead">
+              Романтическая визуальная новелла о летней поездке, исторических петлях и выборе, который превращает
+              близость, страх и ответственность в последствия.
             </p>
             <div class="hero__actions">
-              <a class="button button--primary" href="#document">READ DOCUMENT</a>
-              <a class="button button--secondary" href="../index.html#sections">BACK TO FILES</a>
+              <a class="button button--primary" href="#document" data-i18n="visual.readDoc">ЧИТАТЬ ДОКУМЕНТ</a>
+              <a class="button button--secondary" href="../index.html#sections" data-i18n="common.backToFilesPlain">НАЗАД К PROJECT FILES</a>
             </div>
           </div>
 
           <figure class="case-poster novel-hero__poster">
-            <!-- TODO: заменить постер на финальную key art / cover image проекта. -->
-            <img src="../images/projects/visual-novel-cover.jpg" alt="Постер проекта ВЕЛЕЖСК" />
-            <figcaption>PROJECT FILE / ВЕЛЕЖСК</figcaption>
+            <img src="../images/projects/visual-novel-cover.jpg" alt="ВЕЛЕЖСК project poster" />
+            <figcaption data-i18n="visual.posterCaption">PROJECT FILE / ВЕЛЕЖСК</figcaption>
           </figure>
         </section>
 
         <section id="overview" class="case-section novel-overview">
           <div class="case-section__heading">
-            <p class="eyebrow">Project Overview</p>
-            <h2>О проекте</h2>
+            <p class="eyebrow" data-i18n="visual.overviewLabel">Обзор проекта</p>
+            <h2 data-i18n="visual.overview">О проекте</h2>
           </div>
           <div class="overview-strip">
             <article>
-              <span>Жанр</span>
+              <span data-i18n="visual.genre">Жанр</span>
               <strong>Romantic VN / Mystery / Psychological Drama</strong>
             </article>
             <article>
-              <span>Концепция</span>
-              <strong>Летняя поездка школьников превращается в путешествие по историческим эпохам.</strong>
+              <span data-i18n="visual.concept">Концепция</span>
+              <strong data-i18n="visual.concept.text">Летняя поездка школьников превращается в путешествие по историческим эпохам.</strong>
             </article>
             <article>
-              <span>Цель</span>
-              <strong>Создать историю, которая возвращает к тёплой ностальгии, живым воспоминаниям и миру, где романтика, тайна и история складываются в многогранный опыт.</strong>
+              <span data-i18n="visual.goal">Цель</span>
+              <strong data-i18n="visual.goal.text">
+                Создать историю, которая возвращает к тёплой ностальгии, живым воспоминаниям и миру, где романтика,
+                тайна и история складываются в многогранный опыт.
+              </strong>
             </article>
           </div>
         </section>
 
         <section class="case-section novel-features">
           <div class="case-section__heading">
-            <p class="eyebrow">Core Features</p>
-            <h2>Что делает проект</h2>
+            <p class="eyebrow" data-i18n="visual.features.label">Ключевые особенности</p>
+            <h2 data-i18n="visual.features.title">Что делает проект</h2>
           </div>
           <div class="feature-grid">
             <article>
               <span>01</span>
-              <h3>Исторические эпохи</h3>
-              <p>Каждая ветка переносит героев в отдельный период и меняет драматический контекст.</p>
+              <h3 data-i18n="visual.feature.eras">Исторические эпохи</h3>
+              <p data-i18n="visual.feature.eras.text">Каждая ветка переносит героев в отдельный период и меняет драматический контекст.</p>
             </article>
             <article>
               <span>02</span>
-              <h3>Нелинейный сюжет</h3>
-              <p>Линейное чтение поддержано флагами, отношениями и развилками внутри сцен.</p>
+              <h3 data-i18n="visual.feature.nonLinear">Нелинейный сюжет</h3>
+              <p data-i18n="visual.feature.nonLinear.text">Линейное чтение поддержано флагами, отношениями и развилками внутри сцен.</p>
             </article>
             <article>
               <span>03</span>
-              <h3>Выборы игрока</h3>
-              <p>Решения влияют на доверие, тон сцен, доступные варианты и финальное состояние героя.</p>
+              <h3 data-i18n="visual.feature.choices">Выборы игрока</h3>
+              <p data-i18n="visual.feature.choices.text">Решения влияют на доверие, тон сцен, доступные варианты и финальное состояние героя.</p>
             </article>
             <article>
               <span>04</span>
-              <h3>Романтические ветки</h3>
-              <p>Близость раскрывается через риск, ответственность и поступки, а не через “правильные” ответы.</p>
+              <h3 data-i18n="visual.feature.romance">Романтические ветки</h3>
+              <p data-i18n="visual.feature.romance.text">
+                Близость раскрывается через риск, ответственность и поступки, а не через “правильные” ответы.
+              </p>
             </article>
           </div>
         </section>
@@ -111,18 +120,17 @@
         <section class="case-section novel-story">
           <div class="story-card">
             <div>
-              <p class="eyebrow">Narrative</p>
-              <h2>История о взрослении через выбор</h2>
+              <p class="eyebrow" data-i18n="visual.narrative">Нарратив</p>
+              <h2 data-i18n="visual.narrative.title">История о взрослении через выбор</h2>
             </div>
             <div class="case-copy">
-              <p>
-                После 10 класса группа подростков уезжает в летнее путешествие. В новом городе
-                артефакты начинают переносить их в разные эпохи, где личные отношения сталкиваются
-                с историей, страхом и ответственностью.
+              <p data-i18n="visual.narrative.p1">
+                После 10 класса группа подростков уезжает в летнее путешествие. В новом городе артефакты начинают
+                переносить их в разные эпохи, где личные отношения сталкиваются с историей, страхом и ответственностью.
               </p>
-              <p>
-                В центре истории — Дима Огнев. Игрок формирует его моральную траекторию:
-                поддержать, промолчать, рискнуть, сказать правду или избежать последствий.
+              <p data-i18n="visual.narrative.p2">
+                В центре истории — Дима Огнев. Игрок формирует его моральную траекторию: поддержать, промолчать,
+                рискнуть, сказать правду или избежать последствий.
               </p>
             </div>
           </div>
@@ -130,32 +138,29 @@
 
         <section class="case-section novel-gallery">
           <div class="case-section__heading">
-            <p class="eyebrow">Gallery</p>
-            <h2>Постеры и игровые иллюстрации</h2>
+            <p class="eyebrow" data-i18n="visual.gallery.label">Галерея</p>
+            <h2 data-i18n="visual.gallery.title">Постеры и игровые иллюстрации</h2>
           </div>
           <div class="gallery-showcase">
             <figure class="gallery-showcase__main">
-              <!-- TODO: заменить на финальный постер проекта. -->
-              <img src="../images/projects/visual-novel-cover.jpg" alt="ВЕЛЕЖСК key art" />
-              <figcaption>Main poster</figcaption>
+              <img src="../images/projects/visual-novel-cover.jpg" alt="VELEZHSK key art" />
+              <figcaption data-i18n="visual.gallery.poster">Главный постер</figcaption>
             </figure>
             <figure>
-              <!-- TODO: заменить на финальный in-game background кухни / домашней сцены. -->
-              <img src="../images/projects/visual-novel-ktn-day.png" alt="Пример игровой иллюстрации: тёплая дневная кухня" />
-              <figcaption>In-game illustration / Kitchen day</figcaption>
+              <img src="../images/projects/visual-novel-ktn-day.png" alt="In-game illustration: warm day kitchen" />
+              <figcaption data-i18n="visual.gallery.kitchen">Игровая иллюстрация / Кухня днём</figcaption>
             </figure>
             <figure>
-              <!-- TODO: заменить на финальный in-game background двора / подъезда. -->
-              <img src="../images/projects/visual-novel-padik-day.png" alt="Пример игровой иллюстрации: двор у подъезда днём" />
-              <figcaption>In-game illustration / Courtyard day</figcaption>
+              <img src="../images/projects/visual-novel-padik-day.png" alt="In-game illustration: courtyard day" />
+              <figcaption data-i18n="visual.gallery.courtyard">Игровая иллюстрация / Двор днём</figcaption>
             </figure>
           </div>
         </section>
 
         <section class="case-section novel-role">
           <div class="case-section__heading">
-            <p class="eyebrow">My Role</p>
-            <h2>Что я проектировал</h2>
+            <p class="eyebrow" data-i18n="visual.role.label">Моя роль</p>
+            <h2 data-i18n="visual.role.title">Что я проектировал</h2>
           </div>
           <div class="role-grid">
             <span>Narrative Design</span>
@@ -169,17 +174,17 @@
 
         <section id="document" class="case-section novel-document">
           <a class="document-card document-card--feature" href="../assets/docs/visual-novel-narrative-design-case.pdf">
-            <span>Design Documentation</span>
-            <strong>READ FULL DESIGN DOCUMENT →</strong>
-            <small>
-              Полный PDF раскрывает структуру веток, выборы, персонажей, визуально-звуковое направление
-              и текущий production status.
+            <span data-i18n="visual.document.label">Дизайн-документация</span>
+            <strong data-i18n="visual.document.cta">ЧИТАТЬ ПОЛНЫЙ ДОКУМЕНТ →</strong>
+            <small data-i18n="visual.document.copy">
+              Полный PDF раскрывает структуру веток, выборы, персонажей, визуально-звуковое направление и текущий
+              production status.
             </small>
           </a>
         </section>
 
-        <nav class="case-back" aria-label="Back navigation">
-          <a class="button button--secondary" href="../index.html#sections">BACK TO FILES</a>
+        <nav class="case-back" aria-label="Навигация назад" data-i18n-attr="aria-label:aria.back">
+          <a class="button button--secondary" href="../index.html#sections" data-i18n="common.backToFilesPlain">НАЗАД К PROJECT FILES</a>
         </nav>
       </main>
 
@@ -189,10 +194,11 @@
           <span>doifas.dev</span>
         </div>
         <div class="footer-links">
-          <a href="https://t.me/doifasss" target="_blank" rel="noreferrer">Telegram</a>
-          <a href="mailto:geomastergd@gmail.com">Email</a>
+          <a href="https://t.me/doifasss" target="_blank" rel="noreferrer" data-i18n="common.footerTelegram">Telegram</a>
+          <a href="mailto:geomastergd@gmail.com" data-i18n="common.footerEmail">Email</a>
         </div>
       </footer>
     </div>
+    <script src="../script.js"></script>
   </body>
 </html>
